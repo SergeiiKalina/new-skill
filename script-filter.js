@@ -73,6 +73,7 @@ for(let item of select){
       item.classList.toggle('activ')  
     } 
 }
+
 const range = document.querySelectorAll('.range-slider input');
 progress = document.querySelector('.range-slider .progress');
 let gap = 10;
@@ -121,16 +122,16 @@ veivProduct.addEventListener('click', () => {
        filtBurger.classList.remove('activ')
        document.body.classList.remove('lock')
 })
-shopBy.addEventListener('change', (e) => {
-    let target = e.target;
-    console.log(target.value)
-if(target.value === 2){
-    mySort()
-}
-if(target.value === 1){
-    myReversSort()
-}
-})
+// shopBy.addEventListener('change', (e) => {
+//     let target = e.target;
+//     console.log(target.value)
+// if(target.value === 2){
+//     mySort()
+// }
+// if(target.value === 1){
+//     myReversSort()
+// }
+// })
 
 
 
@@ -169,6 +170,34 @@ rangeFilter.addEventListener('click', () => {
         }
        } 
 })
+veivProduct.addEventListener('click', () => {
+    if(label.classList.contains('activ')){
+        filterSale()
+    }
+    if(!label.classList.contains('activ')){
+        filterSaleNon()
+    }
+    });
+rangeFilter.addEventListener('click', () => {
+if(label.classList.contains('activ')){
+    filterSale()
+}
+if(!label.classList.contains('activ')){
+    filterSaleNon()
+}
+});
+function  filterSaleNon() {
+    for(let i = 0; i < nav.children.length; i++){  
+            nav.children[i].style.display = 'block'
+    }
+}
+function filterSale() {
+    for(let i = 0; i < nav.children.length; i++){
+        if(!nav.children[i].getAttribute('data-sale')){
+            nav.children[i].style.display = 'none'
+        }
+    }
+}
 function mySort(){
     let nav = document.querySelector('#nav');
     for(let i = 0; i < nav.children.length; i++){
