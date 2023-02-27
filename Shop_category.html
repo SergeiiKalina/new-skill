@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>Shelly Theme</title>
+<link rel="shortcut icon" href="./img/icon/SH.png" type="image/png">
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,500;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://necolas.github.io/normalize.css/8.0.1/normalize.css" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+ </head>
+ <body>
+    <div class="wrapper">
+<header class="header">
+    <div class="container">
+        <div class="header__block">
+        <div class="header__logo">
+            <img src="./img/icon/SHOPPE.png" alt="logo">
+        </div>
+        <div class="header__menu">
+            <div class="menu__icon">
+                <span></span>
+            </div>
+            <nav class="menu__body hidden">
+            <ul class="header__menu_list" id="menu">
+                <li class="mobile li_before"><input type="search" class="mobile__menu_search" placeholder="Search"></li>
+                <li class="mobile"><a href="">Home</a></li>
+                <li class="menu__sublist" id="shop"><a href="#" class="target">Shop</a>
+                    <div class="menu__sublist_block">
+                <ul class="menu__sublist_item"><li class="menu__sublist_header">SHOP T YPES</li>
+                   <li><a href="">Shop full width</a></li>
+                   <li><a href="">Shop With sidebar</a></li>
+                   <li><a href="./Shop_category.html">Shop category</a></li>
+                   <li><a href="">Shop carousel</a></li>
+                   <li><a href="">Masonry grid</a></li>
+                </ul>
+                <ul class="menu__sublist_item"><li class="menu__sublist_header">SINGLE PRODUCT</li>
+                    <li><a href="">Standard product</a></li>
+                    <li><a href="">Variable product</a></li>
+                    <li><a href="">On sale product</a></li>
+                    <li><a href="">Out of stock product</a></li>
+                    <li><a href="">New! Product</a></li>
+                </ul>
+                <ul class="menu__sublist_item"><li class="menu__sublist_header">SHOP PAGES</li>
+                    <li><a href="">Cart</a></li>
+                    <li><a href="">Checkout</a></li>
+                    <li><a href="">My account</a></li>
+                    <li><a href="">Wishlist</a></li>
+                    <li><a href="">Order tracking</a></li>
+                </ul>
+            </div></li>
+                <li class="mobile"> <a href="">About</a></li>
+                <li><a href="#" class="target">Blog</a></li>
+                <li class="mobile"><a href="#">Help</a></li>
+                <li class="mobile"> <a href="">Contact</a></li>
+                <li class="list__border only-pc"><a href="#" class="target">Our Story</a></li>
+                <li class="mobile"> <a href="">Search</a></li>
+                <li class="mobile"><div class="border__list"></div></li>
+                <li class="mobile"><img src="./img/icon/account_icon_black.png" alt="account" class="menu__img"><a href="">My account</a></li>
+                <li class="mobile"><img src="./img/icon/logout_black.png" alt="logout" class="menu__img"><a href="">Logout</a></li>
+            </ul>
+        </nav>
+            <div class="header__bascet">
+                <div class="header__img mobile_basket">
+                    <img src="./img/icon/search_icon_black.png" alt="search">
+                </div>
+                <div class="header__img basket">
+                    <img src="./img/icon/basket_icon_black.png" alt="basket">
+                    <div class="basket__circle__block">
+                    <span class="basket_circle"></span><span class="basket_circle"></span></div>
+                </div>
+                <div class="header__img mobile_basket">
+                    <img src="./img/icon/account_icon_black.png" alt="login" class="login">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</header>
+
+    <div class="container">
+        <div class="filter__header">
+            <div class="filter__header_search"><input type="search" placeholder="Search"></div>
+        <h2 class="filter__head">Shop <span>The Latest</span></h2>
+        <div class="filter_burger">
+            <span></span>
+            <a href="#">Filters</a>
+        </div>
+    </div>
+        <main class="filter_product">
+        <div class="filter">
+            <div class="filter__block hidden">
+            <div class="filter__head_search"><input type="search" placeholder="Search..."><a href="https://www.youtube.com/watch?v=ddbxsrGPRY0"></a></div>
+            <div class="filter__select">
+            <select name="multiple" id="shopBy" class="filter__select_item">
+                <option value="1" id="descending">Descending</option>
+                <option value="2">Ascending</option>
+                <option value="3">Shop By</option>
+                <option value="4">Shop By</option>
+            </select></div>
+            <div class="filter__select">
+            <select name="multiple">
+                <option value="1">Sort By</option>
+                <option value="2">Sort By</option>
+                <option value="3">Sort By</option>
+                <option value="4">Sort By</option>
+            </select></div>
+            <div class="filter__price">
+                <div class="min-value numberVal">
+                  <span>Price: $</span><input type="number" min="0" max="100" value="0" disabled> 
+                </div>
+            &nbsp; 
+            <div class="range-slider">
+                <div class="progress"></div>
+                <input type="range" class="range-min" min="0" max="100" value="0" step="1">
+                <input type="range" class="range-max" min="0" max="100" value="100" step="1">
+            </div>
+            &nbsp;
+            <div class="max-value numberVal">
+                <span>- $</span><input type="number" min="0" max="100" value="100" disabled><a href="#" id="sort-desc">Filter</a>
+            </div>
+            </div>
+            <div class="block__checkbox">
+           <div class="checkbox__item"><label for="checkbox_1" class="filter__price_label">On sale</label><input type="checkbox" id="checkbox_1" class="filter__price_input"></div> 
+           <div class="checkbox__item"><label for="checkbox_2" class="filter__price_label1">In stock</label><input type="checkbox" id="checkbox_2" class="filter__price_input"></div></div> 
+           <div class="filter__button"><button class="button__close">Close</button>
+            <button class="button__done">View Product</button></div>
+        </div>
+    </div>
+        <div class="filter_item">
+            <div class="product_block" id="nav">
+                <div class="product_block_item" data-sort="20">
+                    <div class="product__block_img"><img src="./img/body/product/Img_01.png" alt="img">
+                        <div class="product__hover">
+                        <a href="">ADD TO CART</a>
+                    </div>
+                    <div class="proudct__focus">
+                        <div class="product__focus_img">
+                         <div class="focus_img_bascet">
+                             <img src="./img/icon/basket_icon_black.png" alt="">
+                             <div class="focus_img_circle">
+                                 <div class="focus_img_circle1"></div><div class="focus_img_circle1"></div>
+                             </div>
+                         </div>
+                         <div class="focus_img_eys">
+                            <img src="./img/icon/eys.png" alt="">
+                                <div class="eys_circle"></div>
+                         </div>
+                         <div class="focus_img_heart">
+                            <img src="./img/icon/heart.png" alt="">
+                         </div>
+                        </div>
+                     </div></div>
+                    <p class="product_block_item_name">Lira Earrings</p>
+                    <p class="product_block_item_price">$ 20,00</p>
+                 
+                </div>
+                <div class="product_block_item" data-sort="25">
+                    <div class="product__block_img"><img src="./img/body/product/Img_02.png" alt="img">
+                        <div class="product__hover">
+                        <a href="">ADD TO CART</a>
+                    </div>
+                    <div class="proudct__focus">
+                        <div class="product__focus_img">
+                         <div class="focus_img_bascet">
+                             <img src="./img/icon/basket_icon_black.png" alt="">
+                             <div class="focus_img_circle">
+                                 <div class="focus_img_circle1"></div><div class="focus_img_circle1"></div>
+                             </div>
+                         </div>
+                         <div class="focus_img_eys">
+                            <a href=""> <img src="./img/icon/eys.png" alt="">
+                                <div class="eys_circle"></div></a>
+                         </div>
+                         <div class="focus_img_heart">
+                            <img src="./img/icon/heart.png" alt="">
+                         </div>
+                        </div>
+                     </div></div>
+                    <p class="product_block_item_name">Hal Earrings</p>
+                    <p class="product_block_item_price">$ 25,00</p>
+                    <div class="product__hover">
+                        <a href="">ADD TO CART</a>
+                    </div>
+                </div>
+                <div class="product_block_item" data-sort="30">
+                    <div class="product__block_img"><img src="./img/body/product/Img_04.png" alt="img">
+                        <div class="product__hover">
+                        <a href="">ADD TO CART</a>
+                    </div>
+                    <div class="proudct__focus">
+                        <div class="product__focus_img">
+                         <div class="focus_img_bascet">
+                             <img src="./img/icon/basket_icon_black.png" alt="">
+                             <div class="focus_img_circle">
+                                 <div class="focus_img_circle1"></div><div class="focus_img_circle1"></div>
+                             </div>
+                         </div>
+                         <div class="focus_img_eys">
+                            <img src="./img/icon/eys.png" alt="">
+                                <div class="eys_circle"></div>
+                         </div>
+                         <div class="focus_img_heart">
+                            <img src="./img/icon/heart.png" alt="">
+                         </div>
+                        </div>
+                     </div></div>
+                    <p class="product_block_item_name">Kaede Hair Pin Set Of 3 </p>
+                    <p class="product_block_item_price">$ 30,00</p>
+                </div>
+                <div class="product_block_item" data-sort="30">
+                    <div class="product__block_img"><img src="./img/body/product/Rectangle_14.png" alt="img">
+                        <div class="product__hover">
+                        <a href="">ADD TO CART</a>
+                    </div>
+                    <div class="proudct__focus">
+                        <div class="product__focus_img">
+                         <div class="focus_img_bascet">
+                             <img src="./img/icon/basket_icon_black.png" alt="">
+                             <div class="focus_img_circle">
+                                 <div class="focus_img_circle1"></div><div class="focus_img_circle1"></div>
+                             </div>
+                         </div>
+                         <div class="focus_img_eys">
+                            <img src="./img/icon/eys.png" alt="">
+                                <div class="eys_circle"></div>
+                         </div>
+                         <div class="focus_img_heart">
+                            <img src="./img/icon/heart.png" alt="">
+                         </div>
+                        </div>
+                     </div></div>
+                    <p class="product_block_item_name">Hair Pin Set of 3</p>
+                    <p class="product_block_item_price">$ 30,00</p>
+                </div>
+                <div class="product_block_item" data-sort="19">
+                    <div class="product__block_img"><img src="./img/body/product/Img_05.png" alt="img">
+                        <div class="product__hover">
+                        <a href="">ADD TO CART</a>
+                    </div>
+                    <div class="proudct__focus">
+                        <div class="product__focus_img">
+                         <div class="focus_img_bascet">
+                             <img src="./img/icon/basket_icon_black.png" alt="">
+                             <div class="focus_img_circle">
+                                 <div class="focus_img_circle1"></div><div class="focus_img_circle1"></div>
+                             </div>
+                         </div>
+                         <div class="focus_img_eys">
+                            <img src="./img/icon/eys.png" alt="">
+                                <div class="eys_circle"></div>
+                         </div>
+                         <div class="focus_img_heart">
+                            <img src="./img/icon/heart.png" alt="">
+                         </div>
+                        </div>
+                     </div></div>
+                    <p class="product_block_item_name">Plaine Necklace</p>
+                    <p class="product_block_item_price">$ 19,00</p>
+                </div>
+                <div class="product_block_item" data-sort="29">
+                    <div class="product__block_img"><img src="./img/body/product/Img_07.png" alt="img">
+                        <div class="product__hover">
+                        <a href="">ADD TO CART</a>
+                    </div>
+                    <div class="proudct__focus">
+                        <div class="product__focus_img">
+                         <div class="focus_img_bascet">
+                             <img src="./img/icon/basket_icon_black.png" alt="">
+                             <div class="focus_img_circle">
+                                 <div class="focus_img_circle1"></div><div class="focus_img_circle1"></div>
+                             </div>
+                         </div>
+                         <div class="focus_img_eys">
+                            <img src="./img/icon/eys.png" alt="">
+                                <div class="eys_circle"></div>
+                         </div>
+                         <div class="focus_img_heart">
+                            <img src="./img/icon/heart.png" alt="">
+                         </div>
+                        </div>
+                     </div></div>
+                    <p class="product_block_item_name">Yuki Hair Pin Set of 3</p>
+                    <p class="product_block_item_price">$ 29,00</p>
+                </div>
+                <div class="product_block_item" data-sort="20">
+                    <div class="product__block_img"><img src="./img/body/product/Img_01.png" alt="img">
+                        <div class="product__hover">
+                        <a href="">ADD TO CART</a>
+                    </div>
+                    <div class="proudct__focus">
+                        <div class="product__focus_img">
+                         <div class="focus_img_bascet">
+                             <img src="./img/icon/basket_icon_black.png" alt="">
+                             <div class="focus_img_circle">
+                                 <div class="focus_img_circle1"></div><div class="focus_img_circle1"></div>
+                             </div>
+                         </div>
+                         <div class="focus_img_eys">
+                            <img src="./img/icon/eys.png" alt="">
+                                <div class="eys_circle"></div>
+                         </div>
+                         <div class="focus_img_heart">
+                            <img src="./img/icon/heart.png" alt="">
+                         </div>
+                        </div>
+                     </div></div>
+                    <p class="product_block_item_name">Lira Earrings</p>
+                    <p class="product_block_item_price">$ 20,00</p>
+                 
+                </div>
+                <div class="product_block_item" data-sort="25">
+                    <div class="product__block_img"><img src="./img/body/product/Img_02.png" alt="img">
+                        <div class="product__hover">
+                        <a href="">ADD TO CART</a>
+                    </div>
+                    <div class="proudct__focus">
+                        <div class="product__focus_img">
+                         <div class="focus_img_bascet">
+                             <img src="./img/icon/basket_icon_black.png" alt="">
+                             <div class="focus_img_circle">
+                                 <div class="focus_img_circle1"></div><div class="focus_img_circle1"></div>
+                             </div>
+                         </div>
+                         <div class="focus_img_eys">
+                            <img src="./img/icon/eys.png" alt="">
+                                <div class="eys_circle"></div>
+                         </div>
+                         <div class="focus_img_heart">
+                            <img src="./img/icon/heart.png" alt="">
+                         </div>
+                        </div>
+                     </div></div>
+                    <p class="product_block_item_name">Hal Earrings</p>
+                    <p class="product_block_item_price">$ 25,00</p>
+                    <div class="product__hover">
+                        <a href="">ADD TO CART</a>
+                    </div>
+                </div>
+                <div class="product_block_item" data-sort="30">
+                    <div class="product__block_img"><img src="./img/body/product/Img_04.png" alt="img">
+                        <div class="product__hover">
+                        <a href="">ADD TO CART</a>
+                    </div>
+                    <div class="proudct__focus">
+                        <div class="product__focus_img">
+                         <div class="focus_img_bascet">
+                             <img src="./img/icon/basket_icon_black.png" alt="">
+                             <div class="focus_img_circle">
+                                 <div class="focus_img_circle1"></div><div class="focus_img_circle1"></div>
+                             </div>
+                         </div>
+                         <div class="focus_img_eys">
+                            <img src="./img/icon/eys.png" alt="">
+                                <div class="eys_circle"></div>
+                         </div>
+                         <div class="focus_img_heart">
+                            <img src="./img/icon/heart.png" alt="">
+                         </div>
+                        </div>
+                     </div></div>
+                    <p class="product_block_item_name">Kaede Hair Pin Set Of 3 </p>
+                    <p class="product_block_item_price">$ 30,00</p>
+                </div>
+                <div class="product_block_item" data-sort="30">
+                    <div class="product__block_img"><img src="./img/body/product/Rectangle_14.png" alt="img">
+                        <div class="product__hover">
+                        <a href="">ADD TO CART</a>
+                    </div>
+                    <div class="proudct__focus">
+                        <div class="product__focus_img">
+                         <div class="focus_img_bascet">
+                             <img src="./img/icon/basket_icon_black.png" alt="">
+                             <div class="focus_img_circle">
+                                 <div class="focus_img_circle1"></div><div class="focus_img_circle1"></div>
+                             </div>
+                         </div>
+                         <div class="focus_img_eys">
+                            <img src="./img/icon/eys.png" alt="">
+                                <div class="eys_circle"></div>
+                         </div>
+                         <div class="focus_img_heart">
+                            <img src="./img/icon/heart.png" alt="">
+                         </div>
+                        </div>
+                     </div></div>
+                    <p class="product_block_item_name">Hair Pin Set of 3</p>
+                    <p class="product_block_item_price">$ 30,00</p>
+                </div>
+                <div class="product_block_item" data-sort="19">
+                    <div class="product__block_img"><img src="./img/body/product/Img_05.png" alt="img">
+                        <div class="product__hover">
+                        <a href="">ADD TO CART</a>
+                    </div>
+                    <div class="proudct__focus">
+                        <div class="product__focus_img">
+                         <div class="focus_img_bascet">
+                             <img src="./img/icon/basket_icon_black.png" alt="">
+                             <div class="focus_img_circle">
+                                 <div class="focus_img_circle1"></div><div class="focus_img_circle1"></div>
+                             </div>
+                         </div>
+                         <div class="focus_img_eys">
+                            <img src="./img/icon/eys.png" alt="">
+                                <div class="eys_circle"></div>
+                         </div>
+                         <div class="focus_img_heart">
+                            <img src="./img/icon/heart.png" alt="">
+                         </div>
+                        </div>
+                     </div></div>
+                    <p class="product_block_item_name">Plaine Necklace</p>
+                    <p class="product_block_item_price">$ 19,00</p>
+                </div>
+                <div class="product_block_item" data-sort="29">
+                    <div class="product__block_img"><img src="./img/body/product/Img_07.png" alt="img">
+                        <div class="product__hover">
+                        <a href="">ADD TO CART</a>
+                    </div>
+                    <div class="proudct__focus">
+                        <div class="product__focus_img">
+                         <div class="focus_img_bascet">
+                             <img src="./img/icon/basket_icon_black.png" alt="">
+                             <div class="focus_img_circle">
+                                 <div class="focus_img_circle1"></div><div class="focus_img_circle1"></div>
+                             </div>
+                         </div>
+                         <div class="focus_img_eys">
+                           <a href=""> <img src="./img/icon/eys.png" alt="">
+                                <div class="eys_circle"></div></a>
+                         </div>
+                         <div class="focus_img_heart">
+                            <img src="./img/icon/heart.png" alt="">
+                         </div>
+                        </div>
+                     </div></div>
+                    <p class="product_block_item_name">Yuki Hair Pin Set of 3</p>
+                    <p class="product_block_item_price">$ 29,00</p>
+                </div>
+        </div>
+        </div>
+    </main>
+    </div>
+
+
+    <div class="container">
+        <footer class="footer">
+        <div class="footer__block">
+            <div class="footer__block_item">
+                <ul class="footer__list">
+                    <li><a href="">CONTACT</a></li>
+                    <li><a href="">TERMS OF SERVICES</a></li>
+                    <li><a href="">SHIPPING AND RETURNS</a></li>
+                </ul>
+                <div class="footer__block__email">
+                    <input type="email" placeholder="Give an email, get the newsletter." class="footer__input__email">
+                    <a href="">→</a>
+                </div>
+           </div>
+        </div>
+        <div class="footer__block">
+            <div class="footer__block_item2">
+                <div class="footer__block_txt">
+                    <p class="footer__block_info">© 2021 Shelly. Terms of use and privacy policy.</p>
+                </div>
+            <div class="footer__block_social">
+                <img src="./img/footer/social/In.png" alt="in">
+                <img src="./img/footer/social/facebook.png" alt="facebook">
+                <img src="./img/footer/social/instagram.png" alt="instagram">
+                <img src="./img/footer/social/tweter.png" alt="tweter">
+            </div>
+            
+        </div>
+        </div>
+    
+    </footer>
+    
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./script-filter.js"></script>
+
+ </body>
