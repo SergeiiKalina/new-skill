@@ -170,29 +170,97 @@ rangeFilter.addEventListener('click', () => {
         }
        } 
 })
-veivProduct.addEventListener('click', () => {
-    if(label.classList.contains('activ')){
-        filterSale()
+
+document.addEventListener('DOMContentLoaded', ready)
+console.log(nav.children[0].getAttribute('data-sale'))
+function ready(){
+    for(let i = 0; i < nav.children.length; i++){
+        if(nav.children[i].getAttribute('data-sale')){
+            nav.children[i].children[0].children[1].style.display = 'flex'
+            nav.children[i].children[0].children[1].innerHTML = `- ${nav.children[i].getAttribute('data-sale')}%`;
+        }
+        if(!nav.children[i].getAttribute('data-sale')){
+            nav.children[i].children[0].children[1].style.display = 'none'
+        }
     }
-    if(!label.classList.contains('activ')){
-        filterSaleNon()
+}
+
+
+////// Filter //////////////////////////////////////////////////////////////////////////
+
+veivProduct.addEventListener('click', () => {
+    if(label.classList.contains('activ') && labelOne.classList.contains('activ')){
+        filterSaleAndStock()
+        console.log('filterSaleAndStock')
+    }
+    if(label.classList.contains('activ') && !labelOne.classList.contains('activ')){
+        filterSaleOneNoStock()
+        console.log('filterSaleOneNoStock')
+    }
+    if(!label.classList.contains('activ') && !labelOne.classList.contains('activ')){
+        filterNoSaleNoStock()
+        console.log('filterNoSaleNoStock')
+    }
+    if(labelOne.classList.contains('activ') && !label.classList.contains('activ')){
+        filterNoSaleStock()
+        console.log('filterNoSaleStock')
     }
     });
+    
 rangeFilter.addEventListener('click', () => {
-if(label.classList.contains('activ')){
-    filterSale()
-}
-if(!label.classList.contains('activ')){
-    filterSaleNon()
-}
-});
-function  filterSaleNon() {
-    for(let i = 0; i < nav.children.length; i++){  
+    if(label.classList.contains('activ') && labelOne.classList.contains('activ')){
+        filterSaleAndStock()
+        console.log('filterSaleAndStock')
+    }
+    if(label.classList.contains('activ') && !labelOne.classList.contains('activ')){
+        filterSaleOneNoStock()
+        console.log('filterSaleOneNoStock')
+    }
+    if(!label.classList.contains('activ') && !labelOne.classList.contains('activ')){
+        filterNoSaleNoStock()
+        console.log('filterNoSaleNoStock')
+    }
+    if(labelOne.classList.contains('activ') && !label.classList.contains('activ')){
+        filterNoSaleStock()
+        console.log('filterNoSaleStock')
+    }
+    });
+    function filterNoSaleStock() {
+        for(let i = 0; i < nav.children.length; i++){ 
+            if(!nav.children[i].getAttribute('data-stock') && nav.children[i].getAttribute('data-sale')){
+            nav.children[i].style.display = 'none'
+            }
+            if(!nav.children[i].getAttribute('data-stock') && !nav.children[i].getAttribute('data-sale')){
+                nav.children[i].style.display = 'none'
+                }
+            if(nav.children[i].getAttribute('dat-stock') && nav.children[i].getAttribute('data-sale')){
+                nav.children[i].style.display = 'block'
+            }
+           if(nav.children[i].getAttribute('dat-stock')){
             nav.children[i].style.display = 'block'
+           }
+        }
+        }
+function  filterNoSaleNoStock() {
+    for(let i = 0; i < nav.children.length; i++){ 
+        if(!nav.children[i].getAttribute('data-stock') && !nav.children[i].getAttribute('data-sale')){
+            nav.children[i].style.display = 'block'
+        }
+        
     }
 }
-function filterSale() {
+function filterSaleAndStock() {
     for(let i = 0; i < nav.children.length; i++){
+        if(!nav.children[i].getAttribute('data-sale') && !nav.children[i].getAttribute('data-stock')){
+            nav.children[i].style.display = 'none'
+        }
+    }
+}
+function filterSaleOneNoStock() {
+    for(let i = 0; i < nav.children.length; i++){
+        if(!nav.children[i].getAttribute('data-sale') && nav.children[i].getAttribute('data-stock')){
+            nav.children[i].style.display = 'none'
+        }
         if(!nav.children[i].getAttribute('data-sale')){
             nav.children[i].style.display = 'none'
         }
@@ -224,6 +292,9 @@ function myReversSort(){
 function insertAfter(elem, refElem){
     return refElem.parentNode.insertBefore(elem, refElem.nextSubling);
 }
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 const filterPage = document.querySelector('.filter')
 const filterBlock = document.querySelector('.filter_item')
 // shop.addEventListener('click', () => {
