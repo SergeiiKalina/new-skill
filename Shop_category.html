@@ -95,12 +95,7 @@
             <div class="filter__block hidden">
             <div class="filter__head_search"><input type="search" placeholder="Search..."><a href="https://www.youtube.com/watch?v=ddbxsrGPRY0"></a></div>
             <div class="filter__select">
-            <select name="multiple" id="shopBy" class="filter__select_item">
-                <option value="1" id="descending">Descending</option>
-                <option value="2">Ascending</option>
-                <option value="3">Shop By</option>
-                <option value="4">Shop By</option>
-            </select></div>
+            
             <div class="filter__select">
             <select name="multiple">
                 <option value="1">Sort By</option>
@@ -109,6 +104,12 @@
                 <option value="4">Sort By</option>
             </select></div>
 <form class="form" name="form"> 
+    <select name="category" id="shopBy" class="filter__select_item">
+        <option value="1" id="descending">Descending</option>
+        <option value="2">Ascending</option>
+        <option value="3">Shop By</option>
+        <option value="4">Shop By</option>
+    </select></div>
     <input type="checkbox"  id="earrings" name="earrings" data-earrings>
     <input type="checkbox" id="hairpins" name="hairpins" data-category="hairpins">
     <input type="checkbox" id="Pendant" name="pendant" data-category="pendant">
@@ -145,7 +146,7 @@
     </div>
         <div class="filter_item">
             <div class="product_block" id="nav">
-                <div class="product_block_item" data-price="20" data-color="red" data-earrings>
+                <div class="product_block_item" data-price="20" data-color="red" data-category="1">
                     <div class="product__block_img"><img src="./img/body/product/Img_01.png" alt="img"><div class="product__sale"></div>
                         <div class="product__hover">
                         <a href="">ADD TO CART</a>
@@ -170,7 +171,7 @@
                     <p class="product_block_item_name">Lira Earrings</p>
                     <p class="product_block_item_price">$ 20,00</p>
                 </div>
-                <div class="product_block_item" data-price="25" data-earrings data-color="red">
+                <div class="product_block_item" data-price="25" data-category="1" data-color="red">
                     <div class="product__block_img"><img src="./img/body/product/Img_02.png" alt="img"><div class="product__sale"></div>
                         <div class="product__hover">
                         <a href="">ADD TO CART</a>
@@ -195,7 +196,7 @@
                     <p class="product_block_item_name">Hal Earrings</p>
                     <p class="product_block_item_price">$ 25,00</p>
                 </div>
-                <div class="product_block_item" data-price="30" data-category="hairpins" data-color="">
+                <div class="product_block_item" data-price="30" data-category="2" data-color="">
                     <div class="product__block_img"><img src="./img/body/product/Img_04.png" alt="img"><div class="product__sale"></div>
                         <div class="product__hover">
                         <a href="">ADD TO CART</a>
@@ -220,7 +221,7 @@
                     <p class="product_block_item_name">Kaede Hair Pin Set Of 3 </p>
                     <p class="product_block_item_price">$ 30,00</p>
                 </div>
-                <div class="product_block_item" data-price="30" data-category="hairpins" data-color="">
+                <div class="product_block_item" data-price="30" data-category="2" data-color="">
                     <div class="product__block_img"><img src="./img/body/product/Rectangle_14.png" alt="img"><div class="product__sale"></div>
                         <div class="product__hover">
                         <a href="">ADD TO CART</a>
@@ -245,7 +246,7 @@
                     <p class="product_block_item_name">Hair Pin Set of 3</p>
                     <p class="product_block_item_price">$ 30,00</p>
                 </div>
-                <div class="product_block_item" data-price="19" data-category="hairpins" data-color="">
+                <div class="product_block_item" data-price="19" data-category="2" data-color="">
                     <div class="product__block_img"><img src="./img/body/product/Img_05.png" alt="img"><div class="product__sale"></div>
                         <div class="product__hover">
                         <a href="">ADD TO CART</a>
@@ -270,7 +271,7 @@
                     <p class="product_block_item_name">Plaine Necklace</p>
                     <p class="product_block_item_price">$ 19,00</p>
                 </div>
-                <div class="product_block_item" data-price="29" data-category="hairpins" data-color="">
+                <div class="product_block_item" data-price="29" data-category="2" data-color="">
                     <div class="product__block_img"><img src="./img/body/product/Img_07.png" alt="img"><div class="product__sale"></div>
                         <div class="product__hover">
                         <a href="">ADD TO CART</a>
@@ -295,7 +296,7 @@
                     <p class="product_block_item_name">Yuki Hair Pin Set of 3</p>
                     <p class="product_block_item_price">$ 29,00</p>
                 </div>
-                <div class="product_block_item" data-price="20" data-earrings data-color="">
+                <div class="product_block_item" data-price="20" data-category="1" data-color="">
                     <div class="product__block_img"><img src="./img/body/product/Img_01.png" alt="img"><div class="product__sale"></div>
                         <div class="product__hover">
                         <a href="">ADD TO CART</a>
@@ -321,7 +322,7 @@
                     <p class="product_block_item_price">$ 20,00</p>
                  
                 </div>
-                <div class="product_block_item" data-price="25" data-earrings data-color="">
+                <div class="product_block_item" data-price="25" data-category="1" data-color="">
                     <div class="product__block_img"><img src="./img/body/product/Img_02.png" alt="img"><div class="product__sale"></div>
                         <div class="product__hover">
                         <a href="">ADD TO CART</a>
@@ -349,7 +350,7 @@
                         <a href="">ADD TO CART</a>
                     </div>
                 </div>
-                <div class="product_block_item" data-price="30" data-category="hairpins" data-color="">
+                <div class="product_block_item" data-price="30" data-category="2" data-color="">
                     <div class="product__block_img"><img src="./img/body/product/Img_04.png" alt="img"><div class="product__sale"></div>
                         <div class="product__hover">
                         <a href="">ADD TO CART</a>
@@ -374,7 +375,7 @@
                     <p class="product_block_item_name">Kaede Hair Pin Set Of 3 </p>
                     <p class="product_block_item_price">$ 30,00</p>
                 </div>
-                <div class="product_block_item" data-price="30" data-category="hairpins" data-color="">
+                <div class="product_block_item" data-price="30" data-category="2" data-color="">
                     <div class="product__block_img"><img src="./img/body/product/Rectangle_14.png" alt="img"><div class="product__sale"></div>
                         <div class="product__hover">
                         <a href="">ADD TO CART</a>
@@ -399,7 +400,7 @@
                     <p class="product_block_item_name">Hair Pin Set of 3</p>
                     <p class="product_block_item_price">$ 30,00</p>
                 </div>
-                <div class="product_block_item" data-price="19" data-category="hairpins" data-color="">
+                <div class="product_block_item" data-price="19" data-category="2" data-color="">
                     <div class="product__block_img"><img src="./img/body/product/Img_05.png" alt="img"><div class="product__sale"></div>
                         <div class="product__hover">
                         <a href="">ADD TO CART</a>
@@ -424,7 +425,7 @@
                     <p class="product_block_item_name">Plaine Necklace</p>
                     <p class="product_block_item_price">$ 19,00</p>
                 </div>
-                <div class="product_block_item" data-price="29" data-category="hairpins" data-color="">
+                <div class="product_block_item" data-price="29" data-category="2" data-color="">
                     <div class="product__block_img"><img src="./img/body/product/Img_07.png" alt="img"><div class="product__sale"></div>
                         <div class="product__hover">
                         <a href="">ADD TO CART</a>

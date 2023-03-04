@@ -148,8 +148,8 @@ const form = document.querySelector('form'); // береш форму
 const filters = {
   priceMin: (item, value) => Number(form.priceMin.value) <= Number(item.dataset.price), // фільтр по мін ціні
   priceMax: (item, value) => Number(form.priceMax.value) >= Number(item.dataset.price), // фільтр по макс ціні
-  category: (item, category) => form.dataset.earrings === item.dataset.category, 
-//   category1: (item, category) => form.hairpins.value === item.dataset.hairpins,
+  category: (item, category) => item.dataset.category === category, 
+//   category1: (item, category) => form.dataset.hairpins === item.dataset.category, 
 //   category2: (item, category) => form.pendant.value === item.dataset.pendant,
 
 //  color: (item, color) => form.dataset.color === color, // фільтр по кольору тощо
@@ -177,7 +177,6 @@ function filterProducts() { // функція фільтрації
   products.forEach((item) => { // проходишся по всіх продуктах
     const isFiltered = Object.entries(filters).every(([type, cb]) => cb(item, values[type]));
      // перевіряєш чи вони проходять всі фільтри
-     console.log(form.category)
     item.style.display = isFiltered ? 'block' : 'none'; // якщо проходять, то показуєш, якщо ні, то ховаєш
   });
 }
