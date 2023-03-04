@@ -889,6 +889,16 @@ width: 100%;
     background: #A18A68;
 border-radius: 4px;
 }
+.filter__categories{
+    display: flex;
+        flex-direction: column;
+        width: 100%;
+}
+.categories_button{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
 @media(min-width: 1318px){
 
     .pc .mobile{
