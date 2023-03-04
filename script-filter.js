@@ -148,7 +148,7 @@ const form = document.querySelector('form'); // береш форму
 const filters = {
   priceMin: (item, value) => Number(form.priceMin.value) <= Number(item.dataset.price), // фільтр по мін ціні
   priceMax: (item, value) => Number(form.priceMax.value) >= Number(item.dataset.price), // фільтр по макс ціні
-  category: (item, category) => item.dataset.category === item.dataset.category, 
+  category: (item, category) => form.dataset.earrings === item.dataset.category, 
 //   category1: (item, category) => form.hairpins.value === item.dataset.hairpins,
 //   category2: (item, category) => form.pendant.value === item.dataset.pendant,
 
