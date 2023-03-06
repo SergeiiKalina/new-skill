@@ -82,29 +82,12 @@ range.forEach(input => {
 });
 
 
-// let priceMin = parseInt(range[0].value);
-// let priceMax = parseInt(range[1].value);
-// veivProduct.addEventListener('click', () => {
-   
-//     for(let i = 0; i < nav.children.length; i++){
-//         if(maxrange > +nav.children[i].getAttribute('data-sort')){
-//             nav.children[i].style.display = 'block'; 
-//         }
-//         if(minrange > +nav.children[i].getAttribute('data-sort')){
-//             nav.children[i].style.display = 'none';  
-//         }
-      
-//         if(minrange < +nav.children[i].getAttribute('data-sort')){
-//             nav.children[i].style.display = 'block'; 
-//         }
-//         if(maxrange < +nav.children[i].getAttribute('data-sort')){
-//             nav.children[i].style.display = 'none'; 
-//         }
-//        } 
-//        filterOpen.classList.add('hidden')
-//        filtBurger.classList.remove('activ')
-//        document.body.classList.remove('lock')
-// })
+veivProduct.addEventListener('click', () => {
+       filterOpen.classList.add('hidden')
+       filtBurger.classList.remove('activ')
+       document.body.classList.remove('lock')
+});
+
 
 
 
@@ -118,7 +101,6 @@ for(let item of filteItem){
             elem.classList.remove('activ')
         }
         item.children[0].children[2].classList.add('activ')
-      
     })
 }
 
@@ -142,163 +124,92 @@ const form = document.querySelector('form'); // береш форму
 // if(!form) {
 //     return;
 // } // якщо форми немає, то виходимо з функції
+veivProduct.addEventListener('click',(e) => {
+    e.preventDefault()
+     filterProducts()
 
+})
+rangeFilter.addEventListener('click', filterProducts)
 
 // елемент картки продукту має містити атрибути data-price, data-category, data-color, та клас product-item
 const filters = {
   priceMin: (item, value) => Number(form.priceMin.value) <= Number(item.dataset.price), // фільтр по мін ціні
   priceMax: (item, value) => Number(form.priceMax.value) >= Number(item.dataset.price), // фільтр по макс ціні
-  category: (item, category) => item.dataset.category === category, 
-//   category1: (item, category) => form.dataset.hairpins === item.dataset.category, 
-//   category2: (item, category) => form.pendant.value === item.dataset.pendant,
-
-//  color: (item, color) => form.dataset.color === color, // фільтр по кольору тощо
-  
+  category: (item, category) => item.dataset.category === category,
+ brands: (item, brands) => item.dataset.brands === brands, // фільтр по кольору тощо
 };
-
 const products = [...document.querySelectorAll('.product_block_item')];// береш всі продукти на сторінці...
-
 const getFilterValues = (form) => { // функція яка отримує всі значення фільтрів
   const formData = new FormData(form);
   const values = {};
-for(let item of formData){
- console.log(item)
-}
+
   for (const [key, value] of formData) {
-    values[key] = value;
-    
+    values[key] = value;  
   }
   return values;
 };
-
-rangeFilter.addEventListener('click', filterProducts)
 function filterProducts() { // функція фільтрації
   const values = getFilterValues(form); // береш всі значення фільтрів
   products.forEach((item) => { // проходишся по всіх продуктах
-    const isFiltered = Object.entries(filters).every(([type, cb]) => cb(item, values[type]));
-     // перевіряєш чи вони проходять всі фільтри
-    item.style.display = isFiltered ? 'block' : 'none'; // якщо проходять, то показуєш, якщо ні, то ховаєш
+    const isFiltered = Object.entries(filters)
+    .filter(([type]) => values[type])
+    .every(([type, cb]) => cb(item, values[type])); 
+   // перевіряєш чи вони проходять всі фільтри
+    item.style.display = isFiltered ? 'block' : 'none'; 
+      // якщо проходять, то показуєш, якщо ні, то ховаєш
   });
+}
+
+label.addEventListener('click', () =>{
+    console.log('Sort')
+mySort();
+})
+
+
+labelOne.addEventListener('click', () =>{
+    console.log('revers')
+    myReversSort();
+})
+function mySort(){
+    let nav = document.querySelector('#nav');
+    for(let i = 0; i < nav.children.length; i++){
+        for(let j = i; j < nav.children.length; j++){
+            if(+nav.children[i].getAttribute('data-price') > +nav.children[j].getAttribute('data-price')){
+                replacedNode = nav.replaceChild(nav.children[j], nav.children[i]);
+                insertAfter(replacedNode, nav.children[i]);
+            }
+        }
+    }
+}
+function myReversSort(){
+    let nav = document.querySelector('#nav');
+    for(let i = 0; i < nav.children.length; i++){
+        for(let j = i; j < nav.children.length; j++){
+            if(+nav.children[i].getAttribute('data-price') < +nav.children[j].getAttribute('data-price')){
+                replacedNode = nav.replaceChild(nav.children[j], nav.children[i]);
+                insertAfter(replacedNode, nav.children[i]);
+            }
+        }
+    }
+}
+
+function insertAfter(elem, refElem){
+    return refElem.parentNode.insertBefore(elem, refElem.nextSubling);
 }
 
 
 
 
-// rangeFilter.addEventListener('click', () => {
-//     let minrange = parseInt(range[0].value),
-//     maxrange = parseInt(range[1].value);
-//     for(let i = 0; i < nav.children.length; i++){
-//         if(maxrange > +nav.children[i].getAttribute('data-sort')){
-//             nav.children[i].style.display = 'block'; 
-//         }
-//         if(minrange > +nav.children[i].getAttribute('data-sort')){
-//             nav.children[i].style.display = 'none';  
-//         }
-      
-//         if(minrange < +nav.children[i].getAttribute('data-sort')){
-//             nav.children[i].style.display = 'block'; 
-//         }
-//         if(maxrange < +nav.children[i].getAttribute('data-sort')){
-//             nav.children[i].style.display = 'none'; 
-//         }
-//        } 
-// })
-
-const earrings = document.querySelector('.earrings_button')
-const hairpins = document.querySelector('.hairpins_button')
-const pendant = document.querySelector('.pendant_button')
-
-// earrings.addEventListener('click', () =>{
-//     earrings.classList.toggle('activ')
-// })
-// hairpins.addEventListener('click', () =>{
-//     hairpins.classList.toggle('activ')
-// })
-// pendant.addEventListener('click', () =>{
-//     pendant.classList.toggle('activ')
-// })
-
-// veivProduct.addEventListener('click', () => {
-
-//     });
-    
-// rangeFilter.addEventListener('click', () => {
-
-    
-//     });
-
-// function mySort(){
-//     let nav = document.querySelector('#nav');
-//     for(let i = 0; i < nav.children.length; i++){
-//         for(let j = i; j < nav.children.length; j++){
-//             if(+nav.children[i].getAttribute('data-sort') > +nav.children[j].getAttribute('data-sort')){
-//                 replacedNode = nav.replaceChild(nav.children[j], nav.children[i]);
-//                 insertAfter(replacedNode, nav.children[i]);
-//             }
-//         }
-//     }
-// }
-// function myReversSort(){
-//     let nav = document.querySelector('#nav');
-//     for(let i = 0; i < nav.children.length; i++){
-//         for(let j = i; j < nav.children.length; j++){
-//             if(+nav.children[i].getAttribute('data-sort') < +nav.children[j].getAttribute('data-sort')){
-//                 replacedNode = nav.replaceChild(nav.children[j], nav.children[i]);
-//                 insertAfter(replacedNode, nav.children[i]);
-//             }
-//         }
-//     }
-// }
-
-// function insertAfter(elem, refElem){
-//     return refElem.parentNode.insertBefore(elem, refElem.nextSubling);
-// }
-
-
-
-
-
-// earrings.addEventListener('click', () =>{
-//     let nav = document.querySelector('#nav');
-//     for(let i = 0; i < nav.children.length; i++){
-//         nav.children[i].style.display = 'block'
-//     }
-// for(let i = 0; i < nav.children.length; i++){
-//     if(!nav.children[i].classList.contains('earrings')){
-//         nav.children[i].style.display = 'none'
-//     }
-// }
-// })
-// hairpins.addEventListener('click', () =>{
-//     let nav = document.querySelector('#nav');
-//     for(let i = 0; i < nav.children.length; i++){
-//         nav.children[i].style.display = 'block'
-//     }
-// for(let i = 0; i < nav.children.length; i++){
-//     if(!nav.children[i].classList.contains('hairpins')){
-//         nav.children[i].style.display = 'none'
-//     }
-// }
-// })
-// pendant.addEventListener('click', () =>{
-//     let nav = document.querySelector('#nav');
-//     for(let i = 0; i < nav.children.length; i++){
-//         nav.children[i].style.display = 'block'
-//     }
-// for(let i = 0; i < nav.children.length; i++){
-//     if(!nav.children[i].classList.contains('pendant')){
-//         nav.children[i].style.display = 'none'
-//     }
-// }
-// })
-
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
+const filterHidden = document.querySelector('.filter__block');
+const filterItem = document.querySelector('filter_item')
     filtBurger.addEventListener('click', () => {
         filtBurger.classList.toggle('activ')
         filterOpen.classList.toggle('hidden')
         document.body.classList.toggle('lock')
+        filterHidden.classList.add('lock')
+        filterItem.classList.add('lock')
         console.log(filtBurger)
     })
 
@@ -307,4 +218,32 @@ const pendant = document.querySelector('.pendant_button')
         filterOpen.classList.add('hidden')
         filtBurger.classList.remove('activ')
         document.body.classList.remove('lock')
+        filterHidden.classList.remove('lock')
+        filterItem.classList.remove('lock')
+    })
+   
+    const ViewAll = document.querySelector('.button__veiv_all')
+    ViewAll.addEventListener('click', (e) => {
+        e.preventDefault()
+        for(let item of filteItem){
+            item.style.display = 'block'
+        }
+        filterOpen.classList.add('hidden')
+        filtBurger.classList.remove('activ')
+        document.body.classList.remove('lock')
+    })
+
+const search = document.querySelector('.filter__head_search a');
+    search.addEventListener('click', (e) => {
+        e.preventDefault()
+let val = document.querySelector('.filter__head_search input').value;
+console.log(val)
+let arr = [];
+let search = document.querySelectorAll('.product_block_item_name');
+for(let i = 0; i < search.length; i++){
+arr.push(search[i])
+let result = arr.filter(arr => console.log([arr]) )
+console.log(arr[i].innerText)
+console.log('-------------------------')
+}
     })
